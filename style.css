@@ -70,8 +70,8 @@ body > img {
 }
 
 .video-promosi {
-  width: 100%;
-  max-width: 100%;
+  width: 80%;
+  max-width: 80%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(235, 231, 230, 0.2);
