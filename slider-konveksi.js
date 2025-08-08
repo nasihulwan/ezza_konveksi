@@ -1,50 +1,53 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".slider-track");
-  const prevBtn = document.querySelector(".slider-konveksi .prev");
-  const nextBtn = document.querySelector(".slider-konveksi .next");
-  const images = document.querySelectorAll(".slider-track img");
-  const imageWidth = 270; // image width + gap
-  const visibleImages = 4;
-  let position = 0;
-  let autoSlideInterval;
+// ...existing code...
 
-  if (!track || !prevBtn || !nextBtn || images.length === 0) return;
+  // Swipe/drag support untuk slider-konveksi
+  let startX = 0;
+  let isDragging = false;
 
-  function updateSlider() {
-    track.style.transform = `translateX(-${position * imageWidth}px)`;
-  }
+  // Touch events
+  track.addEventListener("touchstart", function(e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
 
-  function slideNext() {
-    if (position < images.length - visibleImages) {
-      position++;
-    } else {
-      position = 0;
+  track.addEventListener("touchmove", function(e) {
+    if (!isDragging) return;
+    let diff = e.touches[0].clientX - startX;
+    if (Math.abs(diff) > 50) { // threshold swipe
+      if (diff < 0) {
+        slideNext();
+      } else {
+        slidePrev();
+      }
+      isDragging = false;
     }
-    updateSlider();
-  }
+  });
 
-  function slidePrev() {
-    if (position > 0) {
-      position--;
-    } else {
-      position = images.length - visibleImages;
-      if (position < 0) position = 0;
+  track.addEventListener("touchend", function() {
+    isDragging = false;
+  });
+
+  // Mouse drag (optional, untuk desktop)
+  track.addEventListener("mousedown", function(e) {
+    startX = e.clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener("mousemove", function(e) {
+    if (!isDragging) return;
+    let diff = e.clientX - startX;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) {
+        slideNext();
+      } else {
+        slidePrev();
+      }
+      isDragging = false;
     }
-    updateSlider();
-  }
+  });
 
-  nextBtn.addEventListener("click", slideNext);
-  prevBtn.addEventListener("click", slidePrev);
+  track.addEventListener("mouseup", function() {
+    isDragging = false;
+  });
 
-  // Auto slide setiap 0.5 detik, berhenti saat hover
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(slideNext, 10000);
-  }
-  function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-  }
-  track.addEventListener("mouseenter", stopAutoSlide);
-  track.addEventListener("mouseleave", startAutoSlide);
-
-  startAutoSlide();
-});
+// ...existing code...
