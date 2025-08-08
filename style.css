@@ -1,0 +1,549 @@
+/* Gambar utama di tengah dan responsif */
+body > img {
+  display: block;
+  margin: 32px auto 0 auto;
+  max-width: 90vw;
+  height: auto;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+/* Section katalog */
+.catalog-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.catalog-link a {
+  background: #27ae60;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.catalog-link a:hover {
+  background: #27ae60;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 600px) {
+  body > img {
+    max-width: 98vw;
+    margin-top: 16px;
+    border-radius: 6px;
+  }
+  .catalog-link a {
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+}
+
+
+/* Video */
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.video-wrapper {
+  max-width: 720px;
+  width: 100%;
+}
+
+.video-caption {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.video-promosi {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(235, 231, 230, 0.2);
+}
+
+/* Layar pembuka video */
+#videoCover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Judul dan deskripsi di overlay */
+#videoCover h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+#videoCover p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  max-width: 300px;
+}
+
+/* Tombol Play Video */
+#videoCover button {
+  background-color: #27ae60;
+  color: white;
+  padding: 14px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+#videoCover button:hover {
+  background-color: #219150;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #videoCover h1 {
+    font-size: 20px;
+  }
+  #videoCover p {
+    font-size: 14px;
+  }
+  #videoCover button {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+#videoCover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+#videoCover video {
+  max-width: 320px; /* Ukuran video diperkecil */
+  width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+
+/* Testimoni Section */
+.overlay-section.testimoni-bg {
+  background: #ffffff;
+  padding: 48px 0 32px 0;
+  width: 100%;
+}
+
+.overlay-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Testimoni Image */
+.testimoni-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.testimoni-image {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* Snap Slider Wrapper untuk tombol di atas gambar */
+.snap-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.snap-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding: 12px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #27ae60 #f8fafc;
+  width: 100%;
+}
+
+.snap-slide {
+  flex: 0 0 80%;
+  max-width: 400px;
+  scroll-snap-align: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+
+.snap-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Tombol Next/Prev di atas gambar, posisi tengah kiri/kanan */
+.slider-btn.prev-btn,
+.slider-btn.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: #27ae60;
+  color: #fff;
+  font-size: 28px;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+  cursor: pointer;
+  opacity: 0.95;
+}
+
+.slider-btn.prev-btn {
+  left: -24px;
+}
+
+.slider-btn.next-btn {
+  right: -24px;
+}
+
+.slider-btn:hover {
+  background: #219150;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .overlay-content {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+  .testimoni-image {
+    max-width: 98vw;
+    border-radius: 10px;
+  }
+  .snap-slider-wrapper {
+    max-width: 98vw;
+  }
+  .snap-slide {
+    max-width: 98vw;
+    padding: 10px;
+  }
+  .slider-btn.prev-btn,
+  .slider-btn.next-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    left: -8px;
+    right: -8px;
+  }
+}
+
+
+/* Form Pemesanan */
+.form-section {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #222;
+}
+
+form label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form button {
+  width: 100%;
+  background-color: #27ae60;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #800000;
+}
+
+
+/*FAQ*/
+.faq-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.faq-heading {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.faq-question {
+  display: block;
+  padding: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #eee;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #ddd;
+}
+
+.faq-answer {
+  padding: 16px;
+  color: #555;
+  display: none;
+  border-top: 1px solid #ddd;
+  animation: slideDown 0.3s ease;
+}
+
+.faq-toggle {
+  display: none;
+}
+
+.faq-toggle:checked ~ .faq-answer {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*slider konveksi*/
+.slider-konveksi {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 20px;
+}
+
+.slider-track img {
+  flex-shrink: 0;
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Tombol panah */
+.slider-konveksi .prev,
+.slider-konveksi .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 24px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.slider-konveksi .prev {
+  left: 10px;
+}
+
+.slider-konveksi .next {
+  right: 10px;
+}
+
+.social-heading {
+  text-align: center;
+  margin: 40px 0;
+}
+
+
+/*Social media*/
+.social-footer {
+  background: #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 50px;
+}
+
+.social-icon:hover {
+  max-width: 160px;
+}
+
+.icon-img {
+  width: 32px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover .icon-img {
+  transform: scale(1.1);
+}
+
+.icon-label {
+  white-space: nowrap;
+  color: #fff;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover .icon-label {
+  opacity: 1;
+}
+
+/* Warna per platform */
+.social-icon.instagram:hover {
+  background-color: #e1306c;
+}
+
+.social-icon.tiktok:hover {
+  background-color: #010101;
+}
+
+.social-icon.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icon.youtube:hover {
+  background-color: #ff0000;
+}
