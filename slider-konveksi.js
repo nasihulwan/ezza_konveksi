@@ -1,4 +1,32 @@
-// ...existing code...
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector('.slider-track');
+  const prevBtn = document.querySelector('.slider-konveksi .prev');
+  const nextBtn = document.querySelector('.slider-konveksi .next');
+  const images = track.querySelectorAll('img');
+  const imageWidth = images[0] ? images[0].offsetWidth + 20 : 270; // 20px gap
+  let position = 0;
+  const visibleImages = Math.floor(track.offsetWidth / imageWidth);
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${position * imageWidth}px)`;
+  }
+
+  function slideNext() {
+    if (position < images.length - visibleImages) {
+      position++;
+      updateSlider();
+    }
+  }
+
+  function slidePrev() {
+    if (position > 0) {
+      position--;
+      updateSlider();
+    }
+  }
+
+  nextBtn.addEventListener("click", slideNext);
+  prevBtn.addEventListener("click", slidePrev);
 
   // Swipe/drag support untuk slider-konveksi
   let startX = 0;
@@ -49,5 +77,4 @@
   track.addEventListener("mouseup", function() {
     isDragging = false;
   });
-
-// ...existing code...
+});
